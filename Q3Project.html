@@ -9,7 +9,8 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"></a>
+            <a class="navbar-brand" href="index.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdHG-Y1bA2xP3O9Gx0Lr5CNsgdICfp4kJU6g&s" id="LOGO" alt="MRT Logo"></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -36,15 +37,13 @@
     <div class="container mt-5 pt-5">
         <section id="Map">
             <h1>MRT Line 3 Map</h1>
-            <br>
-            <img src="https://www.deiville.com/wp-content/uploads/2023/03/map-of-lrt-line-1-2-and-mrt-3-stations-922x1024.jpg">
-            <br>
-            </section>
+            <img src>
+        </section>
 
         <section id="TicketTypes" class="mt-5">
             <h2>Types of Tickets</h2>
             <ul>
-                <li>Minimum Fare: 13 Php</li>
+                <li>Regular Fare: Php 13 – 28</li>
                 <li>Discounted Fare (20% Off): Available for Senior Citizens, PWDs, and Students</li>
             </ul>
         </section>
@@ -55,44 +54,76 @@
                 <div class="mb-3">
                     <label for="fromStation" class="form-label">From Station</label>
                     <select class="form-select" id="fromStation" required>
-                        <option value="">Select Station</option>
-                        <option value="North Avenue">North Avenue</option>
-                        <option value="Quezon Avenue">Quezon Avenue</option>
-                        <option value="GMA Kamuning">GMA Kamuning</option>
-                        <option value="Cubao">Cubao</option>
-                        <option value="Santolan">Santolan</option>
-                        <option value="Ortigas">Ortigas</option>
-                        <option value="Shaw Boulevard">Shaw Boulevard</option>
-                        <option value="Boni">Boni</option>
-                        <option value="Guadalupe">Guadalupe</option>
-                        <option value="Buendia">Buendia</option>
-                        <option value="Ayala">Ayala</option>
-                        <option value="Magallanes">Magallanes</option>
-                        <option value="Taft Avenue">Taft Avenue</option>
+                        <option value="0">Select Station</option>
+                        <option value="0">North Avenue</option>
+                        <option value="0">Quezon Avenue</option>
+                        <option value="0">GMA Kamuning</option>
+                        <option value="3">Cubao</option>
+                        <option value="3">Santolan</option>
+                        <option value="7">Ortigas</option>
+                        <option value="7">Shaw Boulevard</option>
+                        <option value="7">Boni</option>
+                        <option value="11">Guadalupe</option>
+                        <option value="11">Buendia</option>
+                        <option value="11">Ayala</option>
+                        <option value="13">Magallanes</option>
+                        <option value="13">Taft Avenue</option>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="toStation" class="form-label">To Station</label>
                     <select class="form-select" id="toStation" required>
-                        <option value="">Select Station</option>
-                        <option value="North Avenue">North Avenue</option>
-                        <option value="Quezon Avenue">Quezon Avenue</option>
-                        <option value="GMA Kamuning">GMA Kamuning</option>
-                        <option value="Cubao">Cubao</option>
-                        <option value="Santolan">Santolan</option>
-                        <option value="Ortigas">Ortigas</option>
-                        <option value="Shaw Boulevard">Shaw Boulevard</option>
-                        <option value="Boni">Boni</option>
-                        <option value="Guadalupe">Guadalupe</option>
-                        <option value="Buendia">Buendia</option>
-                        <option value="Ayala">Ayala</option>
-                        <option value="Magallanes">Magallanes</option>
-                        <option value="Taft Avenue">Taft Avenue</option>
+                       <option value="0">Select Station</option>
+                        <option value="0">North Avenue</option>
+                        <option value="0">Quezon Avenue</option>
+                        <option value="0">GMA Kamuning</option>
+                        <option value="3">Cubao</option>
+                        <option value="3">Santolan</option>
+                        <option value="7">Ortigas</option>
+                        <option value="7">Shaw Boulevard</option>
+                        <option value="7">Boni</option>
+                        <option value="11">Guadalupe</option>
+                        <option value="11">Buendia</option>
+                        <option value="11">Ayala</option>
+                        <option value="13">Magallanes</option>
+                        <option value="13">Taft Avenue</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Get Fare Estimate</button>
             </form>
         </section>
+
+    <center>
+    	<br><br>
+    <p>Fare amount:</p>
+                <p>
+                <input type="text" class="money-box" readonly value="13₱">
+                <br>
+
+
+<style>
+.money-box {
+            width: 250px;
+            text-align: center;
+            font-size: 1.5em;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+        body{background-image: url("https://previews.123rf.com/images/teploleta/teploleta1507/teploleta150700287/42280484-money-background-vector-seamless-pattern-with-dollars.jpg");%7D
+</style>
+
+    <br>
+
+</center>
+
+
+</body>
+</html>
+
 
         <section id="Schedule" class="mt-5">
             <h2>Train Schedule</h2>
@@ -152,15 +183,15 @@ color: #2DAA9E;
 }
 
 h2{
-    color: #2DAA9E;
+	color: #2DAA9E;
 }
 
 label{
-    color: #59B4C3;
+	color: #59B4C3;
 }
 
 li{
-    color: #59B4C3;
+	color: #59B4C3;
 }
 
 body{
@@ -180,7 +211,7 @@ body{
 }
 
 .navbar {
-    background-color: #2DAA9E; }
+    background-color: #2DAA9E !important; }
 
         footer {
             position: relative;
