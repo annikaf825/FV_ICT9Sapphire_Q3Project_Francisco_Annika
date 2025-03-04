@@ -9,8 +9,8 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-            <img src="https://i.redd.it/frm5m4wsadrd1.jpeg" id="LOGO" alt="MRT Logo"></a>
+           <a class="navbar-brand" href="javascript:location.reload();">
+    <img src="https://i.redd.it/frm5m4wsadrd1.jpeg" id="LOGO" alt="MRT Logo"></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -55,7 +55,6 @@
                 <div class="mb-3">
                     <label for="fromStation" class="form-label">From Station</label>
                     <select class="form-control" id="fromStation">
-                        <option value="0">Select Station</option>
                         <option value="0">North Avenue</option>
                         <option value="0">Quezon Avenue</option>
                         <option value="0">GMA Kamuning</option>
@@ -67,14 +66,14 @@
                         <option value="11">Guadalupe</option>
                         <option value="11">Buendia</option>
                         <option value="11">Ayala</option>
-                        <option value="13">Magallanes</option>
-                        <option value="13">Taft Avenue</option>
+                        <option value="15">Magallanes</option>
+                        <option value="15">Taft Avenue</option>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="toStation" class="form-label">To Station</label>
                     <select class="form-control" id="toStation">
-                       <option value="0">Select Station</option>
+                     <option value="0">Select Station</option>
                         <option value="0">North Avenue</option>
                         <option value="0">Quezon Avenue</option>
                         <option value="0">GMA Kamuning</option>
@@ -86,39 +85,34 @@
                         <option value="11">Guadalupe</option>
                         <option value="11">Buendia</option>
                         <option value="11">Ayala</option>
-                        <option value="13">Magallanes</option>
-                        <option value="13">Taft Avenue</option>
+                        <option value="15">Magallanes</option>
+                        <option value="15">Taft Avenue</option>
                     </select>
                 </div>
 
 
-                <button type="submit" class="btn btn-primary" id="regular" onclick="showpricing()">Regular Fare</button>
-                <button type="submit" class="btn btn-primary" id="discount" onclick="showmdiscount()">Discounted Fare</button>
+                <button type="button" class="btn btn-primary" id="regular" onclick="showpricing()">Regular Fare</button>
+                <button type="button" class="btn btn-primary" id="discount" onclick="showmdiscount()">Discounted Fare</button>
 
             </form>
         </section>
 
     <center>
-    	<br><br>
+        <br><br>
     <p>Fare amount:</p>
                 <p>
-                <input type="text" class="money-box" id="fareAmount" readonly>
+                <input type="text" class="fare-box" id="fareAmount" readonly>
                 <br>
 
 <script type="text/javascript">
-
 
 function showpricing() {
     var location = document.getElementById("fromStation").value;
     var destination = document.getElementById("toStation").value;
 
     var baseFare = 13;
-    var difference = location - destination;
-    
-    if (difference < 0) {
-        difference = difference * -1; 
-    }
-    
+    var difference = (location - destination) * ((location - destination) >= 0 ? 1 : -1);
+
     var finalFare = difference + baseFare;
     
     document.getElementById("fareAmount").value = "₱" + finalFare;
@@ -130,23 +124,19 @@ function showmdiscount() {
     var discount = 0.20; 
 
     var baseFare = 13;
-    var difference = location - destination;
-    
-    if (difference < 0) {
-        difference = difference * -1; 
-    }
+    var difference = (location - destination) * ((location - destination) >= 0 ? 1 : -1);
 
     var finalFare = difference + baseFare;
-    var discountedFare = finalFare - (finalFare * discount);
+    var discountedFare = finalFare * (1 - discount);
     
     document.getElementById("fareAmount").value = "₱" + discountedFare.toFixed(2);
-
 }
+
 
 
 </script>
 <style>
-.money-box {
+.fare-box {
             width: 250px;
             text-align: center;
             font-size: 1.5em;
@@ -170,8 +160,46 @@ function showmdiscount() {
 
 
         <section id="Schedule" class="mt-5">
-            <h2>Train Schedule</h2>
-            <p>Train Schedule will be updated soon. Please check back regularly.</p>
+    <h2>Train Schedule</h2>
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th rowspan="2">TIMETABLE</th>
+                <th colspan="2">NORTH AVENUE STATION</th>
+                <th colspan="2">TAFT AVENUE STATION</th>
+            </tr>
+            <tr>
+                <th>FIRST TRAIN</th>
+                <th>LAST TRAIN</th>
+                <th>FIRST TRAIN</th>
+                <th>LAST TRAIN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>WEEKDAYS</td>
+                <td>4:36 AM</td>
+                <td>9:30 PM</td>
+                <td>5:18 AM</td>
+                <td>10:11 PM</td>
+            </tr>
+            <tr>
+                <td>SATURDAYS</td>
+                <td>4:37 AM</td>
+                <td>9:30 PM</td>
+                <td>5:18 AM</td>
+                <td>10:08 PM</td>
+            </tr>
+            <tr>
+                <td>SUNDAYS/HOLIDAYS</td>
+                <td>4:38 AM</td>
+                <td>9:30 PM</td>
+                <td>5:19 AM</td>
+                <td>10:09 PM</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
         </section>
 
         <section id="Feedback" class="mt-5">
@@ -214,8 +242,8 @@ function showmdiscount() {
         }
 
         #MAP3 {
-        	width: 300px;
-        	height: 300px;
+            width: 300px;
+            height: 300px;
         }
         .navbar-nav .nav-item {
             margin-left: 10px;
@@ -232,19 +260,19 @@ color: #900020;
 }
 
 h2{
-	color: #8B0000;
+    color: #8B0000;
 }
 
 label{
-	color: #A5B9CC;
+    color: #A5B9CC;
 }
 
 p{
-	color: #A5B9CC;
+    color: #A5B9CC;
 }
 
 li{
-	color: #A5B9CC;
+    color: #A5B9CC;
 }
 
 body{
