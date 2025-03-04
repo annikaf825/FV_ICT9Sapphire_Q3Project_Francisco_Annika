@@ -10,7 +10,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdHG-Y1bA2xP3O9Gx0Lr5CNsgdICfp4kJU6g&s" id="LOGO" alt="MRT Logo"></a>
+            <img src="https://i.redd.it/frm5m4wsadrd1.jpeg" id="LOGO" alt="MRT Logo"></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -35,9 +35,10 @@
 
 <br><br>
     <div class="container mt-5 pt-5">
-        <section id="Map">
+        <section id="Home">
             <h1>MRT Line 3 Map</h1>
-            <img src>
+            <br>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv-zCzec2vdflq8-V-vNqLSwXHLBU18Fvh9g&s" id="MAP3">
         </section>
 
         <section id="TicketTypes" class="mt-5">
@@ -53,7 +54,7 @@
             <form>
                 <div class="mb-3">
                     <label for="fromStation" class="form-label">From Station</label>
-                    <select class="form-select" id="fromStation" required>
+                    <select class="form-control" id="fromStation">
                         <option value="0">Select Station</option>
                         <option value="0">North Avenue</option>
                         <option value="0">Quezon Avenue</option>
@@ -72,7 +73,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="toStation" class="form-label">To Station</label>
-                    <select class="form-select" id="toStation" required>
+                    <select class="form-control" id="toStation">
                        <option value="0">Select Station</option>
                         <option value="0">North Avenue</option>
                         <option value="0">Quezon Avenue</option>
@@ -89,7 +90,11 @@
                         <option value="13">Taft Avenue</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Get Fare Estimate</button>
+
+
+                <button type="submit" class="btn btn-primary" id="regular" onclick="showpricing()">Regular Fare</button>
+                <button type="submit" class="btn btn-primary" id="discount" onclick="showmdiscount()">Discounted Fare</button>
+
             </form>
         </section>
 
@@ -97,10 +102,49 @@
     	<br><br>
     <p>Fare amount:</p>
                 <p>
-                <input type="text" class="money-box" readonly value="13₱">
+                <input type="text" class="money-box" id="fareAmount" readonly>
                 <br>
 
+<script type="text/javascript">
 
+
+function showpricing() {
+    var location = document.getElementById("fromStation").value;
+    var destination = document.getElementById("toStation").value;
+
+    var baseFare = 13;
+    var difference = location - destination;
+    
+    if (difference < 0) {
+        difference = difference * -1; 
+    }
+    
+    var finalFare = difference + baseFare;
+    
+    document.getElementById("fareAmount").value = "₱" + finalFare;
+}
+
+function showmdiscount() {
+    var location = document.getElementById("fromStation").value;
+    var destination = document.getElementById("toStation").value;
+    var discount = 0.20; 
+
+    var baseFare = 13;
+    var difference = location - destination;
+    
+    if (difference < 0) {
+        difference = difference * -1; 
+    }
+
+    var finalFare = difference + baseFare;
+    var discountedFare = finalFare - (finalFare * discount);
+    
+    document.getElementById("fareAmount").value = "₱" + discountedFare.toFixed(2);
+
+}
+
+
+</script>
 <style>
 .money-box {
             width: 250px;
@@ -113,7 +157,7 @@
         .button-container {
             margin-top: 20px;
         }
-        body{background-image: url("https://previews.123rf.com/images/teploleta/teploleta1507/teploleta150700287/42280484-money-background-vector-seamless-pattern-with-dollars.jpg");%7D
+      
 </style>
 
     <br>
@@ -147,8 +191,8 @@
 
         <section id="Contact" class="mt-5">
             <h2>Contact Information</h2>
-            <p>Email: support@traincenter.com</p>
-            <p>Phone: +63 123 456 7890</p>
+            <p>Email: support@mugentraincenter.com</p>
+            <p>Phone: +0xxxxxxxxx</p>
         </section>
     </div>
 
@@ -168,14 +212,19 @@
             width: 60px;
             height: 40px;
         }
+
+        #MAP3 {
+        	width: 300px;
+        	height: 300px;
+        }
         .navbar-nav .nav-item {
             margin-left: 10px;
         }
 
         h1{
-background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20201015/pngtree-omber-cyan-green-triangle-low-poly-background-image_418035.jpg") ;
+background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoOT1UQYcijL9Ivg9x3brkItKjlDOLr9p0xw&s") ;
 background-repeat: repeat;
-color: #2DAA9E;
+color: #900020;
   margin: 0;
     padding: 10px;
     background-size: cover;
@@ -183,26 +232,30 @@ color: #2DAA9E;
 }
 
 h2{
-	color: #2DAA9E;
+	color: #8B0000;
 }
 
 label{
-	color: #59B4C3;
+	color: #A5B9CC;
+}
+
+p{
+	color: #A5B9CC;
 }
 
 li{
-	color: #59B4C3;
+	color: #A5B9CC;
 }
 
 body{
-     background-image:url('https://img.freepik.com/free-vector/gray-hand-drawn-stars-textured-pattern-kids_53876-99193.jpg');
+     background-image:url('https://preview.redd.it/jiczv4qx9xp91.png?width=640&crop=smart&auto=webp&s=a076255908768a1b7666bd064c04b309a223967d');
      background-repeat: no repeat;
      background-size: cover;
      background-attachment: fixed;
 } 
 
         .container{
-    background-color: #E3D2C3;
+    background-color: #000000;
     padding: 10px;
     margin: 10px 0;
     width: 100%;
@@ -211,13 +264,15 @@ body{
 }
 
 .navbar {
-    background-color: #2DAA9E !important; }
+    background-color: #000000; }
 
         footer {
             position: relative;
             bottom: 0;
             width: 100%;
         }
+
+
     </style>
 
 
